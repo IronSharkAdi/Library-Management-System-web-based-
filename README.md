@@ -1,7 +1,7 @@
 # Library-Management-System-web-based-
 # Library Management Software (web based) made with Django
 
-##Features :
+## Features :
 ```
 1.Normal Library Management System features +
 2.Full record of who took the book and when they issued and returned the book.
@@ -26,4 +26,4 @@ python manage.py runserver
 ```
 
 
-##Warning : not for commercial use
+## Warning : not for commercial use
