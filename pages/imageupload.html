@@ -1,0 +1,36 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link href="{% static 'css/main.css' %}" rel="stylesheet">
+    <title>Change Image</title>
+    <link rel="icon" href="https://b1.pngbarn.com/png/966/621/dots-white-and-blue-circle-and-book-icon-png-clip-art.png" type="image/png">
+</head>
+<body class="text-light " style="background-color: #202445;">
+  <a href="backhome" class="btn btn-danger m-3">Back</a>
+    <form method="POST" enctype="multipart/form-data" class="p-5 bg-info m-5" style="width:400px ;border: 1px solid black; border-radius: 5px;  -webkit-box-shadow: 23px 29px 38px 0px rgba(22,26,54,1); -moz-box-shadow: 23px 29px 38px 0px rgba(22,26,54,1); box-shadow: 23px 29px 38px 0px rgba(22,26,54,1);" >
+        {% csrf_token %}
+        <h3 class="text-light">Change Picture</h3>
+        <div class="form-group">
+          <label class="text-light"><h3>Staff Name : {{user.username}}</h3></label>
+          <input type="file" name="image" class="btn btn-gray">
+        </div>
+        <br>
+        
+        {% for message in messages %}
+        <div class="text-danger"> <h4>{{message}}</h4> </div>
+        {% endfor %}
+        <br>
+        <button type="submit" value="Post" class="btn btn-primary"> Submit</button>
+      </form>
+</body>
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+<script>
+</script>
+
+</html>

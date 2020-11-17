@@ -1,0 +1,44 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link href="{% static 'css/main.css' %}" rel="stylesheet">
+    <title>Edit Staff</title>
+    <link rel="icon" href="https://b1.pngbarn.com/png/966/621/dots-white-and-blue-circle-and-book-icon-png-clip-art.png" type="image/png">
+</head>
+<body style="background-color:  #2e3560 ;"  >
+  
+      <a href="{% url 'editstaff' %}" class="btn btn-danger px-3 mx-5 ">Back</a><br>
+      <div class="loginForm">
+    <form method="POST" class="p-5 bg-info" style="width:400px ;border: 1px solid black; border-radius: 5px;" >
+        {% csrf_token %}
+        <div class="form-group">
+          <label class="text-light">Name: {{search_username}}</label>
+        </div>
+        <h3 class="text-light">Permissions :</h3>
+        <label><input type="checkbox" {% if user.permissions.addbook %} checked {% endif %} name="addbook">Add Books</label><br>
+        <label><input type="checkbox" {% if user.permissions.editbooks %} checked {% endif %}  name="editbooks">Edit Books</label><br>
+        <label><input type="checkbox" {% if user.permissions.editstaff %} checked {% endif %}  name="editstaff">Edit Staff</label><br>
+        <label><input type="checkbox"  {% if user.permissions.recofredited %} checked {% endif %} name="recofredited">View record of edited books </label>
+        <label><input type="checkbox"  {% if user.permissions.recofdeleted %} checked {% endif %}  name="recofdeleted">View record of deleted books </label>
+        <label><input type="checkbox"  {% if user.permissions.removebook %} checked {% endif %}  name="removebook">Remove Books</label><br>
+        <label><input type="checkbox"  {% if user.permissions.removestaff %} checked {% endif %}    name="removestaff">Remove Staff</label><br>
+        <label><input type="checkbox" {% if user.permissions.addstaff %} checked {% endif %} name="addstaff">Add Staff</label><br>
+        <br>
+        <br>
+        <button type="submit" value="Post" class="btn btn-primary">Submit</button>
+        <a href="{% url 'editstaff' %}" class="btn btn-danger m-5">Don't Submit</a>
+      </form>
+    </div>
+</body>
+</html>
+
+
+
+
+
+
+

@@ -1,0 +1,37 @@
+from django.contrib import admin
+from django.urls import path
+from . import views
+urlpatterns = [
+    path('' , views.home , name='home'),
+    path('login', views.login , name='login'),
+    path('logout', views.logout , name='logout'),
+    path('query', views.query , name='query'),
+    path('makeQuery', views.makeQuery , name='makeQuery'),
+    path('backhome' ,views.backhome, name='backhome'),
+    path('querypage' ,views.querypage, name='querypage'),
+    path('addbook' ,views.addbook, name='addbook'),
+    path('issue' ,views.issue, name='issue'),
+    path('bookrec' ,views.bookrec, name='bookrec'),
+    path('bookrecord' ,views.bookrecord, name='bookrecord'),
+    path('bookform' ,views.bookform, name='bookform'),
+    path('editbook' ,views.editbook, name='editbook'),
+    path('adduser' ,views.adduser, name='adduser'),
+    path('removeuser' ,views.removeuser, name='removeuser'),
+    path('recofediting' ,views.recofediting, name='recofediting'),
+    path('recofdeleting' ,views.recofdeleting, name='recofdeleting'),
+    path('editbooksection' ,views.editbooksection, name='editbooksection'),
+    path('edit/<search_dispo>/<name>/<searchedBy>' ,views.edit, name='edit'),
+    path('delete/<search_id>/<name>/<searchedBy>' ,views.delete, name='delete'),
+    path('showrecofediting' ,views.showrecofediting, name='showrecofediting'),
+    path('showrecofdeleting' ,views.showrecofdeleting, name='showrecofdeleting'),
+    path('changepic' ,views.changepic, name='changepic'),
+    path('downloadbookrec/<name>/<searchedBy>' ,views.downloadbookrec, name='downloadbookrec'),
+    path('downloadquery/<name>/<searchedBy>' ,views.downloadquery, name='downloadquery'),
+    path('downloadrecofediting/<name>/<searchedBy>' ,views.downloadrecofediting, name='downloadrecofediting'),
+    path('downloadrecofdeleting/<name>/<searchedBy>' ,views.downloadrecofdeleting, name='downloadrecofdeleting'),
+    path('editstaff' ,views.editstaff, name='editstaff'),
+    path('editstaffform' ,views.editstaffform, name='editstaffform'),
+    #path('editstafftable' ,views.editstafftable, name='editstafftable'),
+    path('editstaffsection/<search_username>/<name>' ,views.editstaffsection, name='editstaffsection'),
+]
+

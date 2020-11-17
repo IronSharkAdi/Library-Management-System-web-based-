@@ -1,0 +1,42 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link href="{% static 'css/main.css' %}" rel="stylesheet">
+    <title>Issue</title>
+    <link rel="icon" href="https://b1.pngbarn.com/png/966/621/dots-white-and-blue-circle-and-book-icon-png-clip-art.png" type="image/png">
+</head>
+<body class="text-light  loginForm" >
+  <a href="backhome" class="btn btn-danger m-3">Back</a>
+    <form method="POST" class="p-5 bg-success m-5" style="width:400px ;border: 1px solid black; border-radius: 5px;  -webkit-box-shadow: 23px 29px 38px 0px rgba(22,26,54,1); -moz-box-shadow: 23px 29px 38px 0px rgba(22,26,54,1); box-shadow: 23px 29px 38px 0px rgba(22,26,54,1);" >
+        {% csrf_token %}
+        <h3 class="text-light">Issue Book</h3>
+        <div class="form-group">
+          <label class="text-light">Name:</label>
+          <input type="text" required  class="form-control " {% if man.name %} value="{{man.name}}"  {% endif %} name="name" >
+        </div>
+        <br>
+        <div class="form-group" >
+          <label class="text-light">Phone number:</label>
+          <input type="text" required  class="form-control" {% if man.number %} value="{{man.number}}" {% endif %} name="number">
+        </div>
+        <div class="form-group" >
+          <label class="text-light">Book Name:</label>
+          <input type="text" class="form-control" required  name="bookdispo">
+        </div>
+        <br>
+        
+        {% for message in messages %}
+        <div class="text-danger"> <h4>{{message}}</h4> </div>
+        {% endfor %}
+        <br>
+        <button type="submit" name="submit" class="btn btn-primary">Submit</button>
+      </form>
+</body>
+</html>
+
+
+

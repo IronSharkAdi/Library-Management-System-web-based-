@@ -1,0 +1,49 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link href="{% static 'css/main.css' %}" rel="stylesheet">
+    <link rel="icon" href="https://b1.pngbarn.com/png/966/621/dots-white-and-blue-circle-and-book-icon-png-clip-art.png" type="image/png">
+    <title>Book Record</title>
+</head>
+<body class="text-light" style="background-color: #202445;">
+    <div class="container py-5">
+        <a href="backhome" class="btn btn-success my-5">Go Back to Dashboard</a>
+        <a href="bookform" class="btn btn-primary m-5">Make another query</a>
+{% if searched%}
+        <a href="{% url 'downloadbookrec' name searchedBy %}" class="float-right btn btn-primary my-5">Download into excel</a>
+        <table class="table table-bordered bg-grey py-5">
+            <thead>
+              <tr>
+                <th>Book name</th>
+                <th>Name</th>
+                <th>Number</th>
+                <th>Issued Time</th>
+                <th>Received Time</th>
+
+              </tr>
+            </thead>
+            <tbody>
+                {% for search in searched %}
+              <tr>
+                    <th>{{search.bookdispo}}</th>
+                    <th>{{search.borrower.name}}</th>
+                    <th>{{search.borrower.number}}</th>
+                    <th>{{search.taken_at}}</th>
+                    <th>{{search.given_at}}</th>
+              </tr>
+              {% endfor %}
+            </tbody>
+          </table>
+{% else %}
+          <h1>No result found...</h1>
+{% endif %}
+    </div>    
+</body>
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+</html>

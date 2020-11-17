@@ -1,0 +1,13 @@
+.userProfile{
+    border-radius: 50% !important; margin-top: 50px;
+}
+.loginForm{
+    background-color: #2e3560; display: flex; align-items: center; justify-content: center;
+}
+
+.inputLabel{
+    width: 400px; height: 45px; border-radius: 5px;
+}
+.btn form{
+    -webkit-box-shadow: 23px 29px 38px 0px rgba(22,26,54,1); -moz-box-shadow: 23px 29px 38px 0px rgba(22,26,54,1); box-shadow: 23px 29px 38px 0px rgba(22,26,54,1);
+}
