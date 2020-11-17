@@ -512,3 +512,5 @@ def editstaffsection(request , search_username , name):
 
     
     return render(request , 'editstaffsection.html' ,{'user':user, 'search_username':search_username , 'name':name })
+
+#commenting is a trend *_* (just testing pull requests)
